@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import { motion } from 'framer-motion';
 import './App.css';
+import Collapsible from './components/Collapsible';
 
 function App() {
   const pVariants = {
@@ -64,6 +65,14 @@ function App() {
           </motion.li>
         ))}
       </header>
+      <section className='section'>
+        <Collapsible title='Toggle Content'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos dolorum
+          impedit repellat cupiditate laboriosam odio dignissimos adipisci!
+          Corrupti voluptates cumque vero quas sit. Praesentium sed illum
+          consequatur unde dolores laboriosam?
+        </Collapsible>
+      </section>
     </div>
   );
 }

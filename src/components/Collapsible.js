@@ -6,18 +6,28 @@ const Collapsible = props => {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleVisibility = () => setIsVisible(true);
+  const handleVisibility = () => setIsVisible(!isVisible);
 
   return (
     <>
-      <div
-        style={{ backgroundColor: '#ddd', width: 300, padding: '.8rem 1.2rem' }}
-        onClick={() => handleVisibility()}>
-        {title}
+      <div className='collapse-container'>
+        <div
+          style={{
+            backgroundColor: '#ddd',
+            width: 300,
+            padding: '.8rem 1.2rem',
+          }}
+          onClick={() => handleVisibility()}>
+          {title}
+        </div>
+        <AnimatePresence>
+          {isVisible && (
+            <motion.div style={{ padding: '.8rem 1.2rem' }}>
+              {children}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {isVisible && <div style={{ padding: '.8rem 1.2rem' }}>{children}</div>}
-      </AnimatePresence>
     </>
   );
 };
