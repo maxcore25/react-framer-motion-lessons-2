@@ -1,14 +1,51 @@
 import logo from './logo.svg';
+import { motion } from 'framer-motion';
 import './App.css';
 
 function App() {
+  const pVariants = {
+    hidden: { x: -1000 },
+    visible: { x: 0 },
+  };
+
+  const listVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: i => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        // duration: 0.1,
+        delay: i * 0.3,
+      },
+    }),
+  };
+
+  const items = ['text1', 'text2', 'text3'];
+
   return (
     <div className='App'>
       <header className='App-header'>
-        <motion.img src={logo} className='App-logo' alt='logo' />
-        <p>
+        <motion.img
+          // initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{
+            // delay: 3,
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 1,
+            repeatType: 'reverse',
+          }}
+          src={logo}
+          className='App-logo'
+          alt='logo'
+        />
+        <motion.p
+          variants={pVariants}
+          initial='hidden'
+          animate='visible'
+          transition={{ delay: 0.5 }}>
           Edit <code>src/App.js</code> and save to reload.
-        </p>
+        </motion.p>
         <a
           className='App-link'
           href='https://reactjs.org'
@@ -16,6 +53,16 @@ function App() {
           rel='noopener noreferrer'>
           Learn React
         </a>
+        {items.map((el, index) => (
+          <motion.li
+            variants={listVariants}
+            initial='hidden'
+            animate='visible'
+            custom={index}
+            key={el}>
+            {el}
+          </motion.li>
+        ))}
       </header>
     </div>
   );
