@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 const Collapsible = props => {
   const { title = 'click me', children } = props;
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleVisibility = () => setIsVisible(!isVisible);
 
@@ -20,10 +20,23 @@ const Collapsible = props => {
           onClick={() => handleVisibility()}>
           {title}
         </div>
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {isVisible && (
-            <motion.div style={{ padding: '.8rem 1.2rem' }}>
-              {children}
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              style={{ overflow: 'hidden' }}
+              //   transition={{ duration: 2 }}
+            >
+              <div
+                style={{
+                  padding: '.8rem 1.2rem',
+                  width: 300,
+                  border: '1px solid #ddd',
+                }}>
+                {children}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

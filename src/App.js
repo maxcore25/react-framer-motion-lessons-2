@@ -2,8 +2,21 @@ import logo from './logo.svg';
 import { motion } from 'framer-motion';
 import './App.css';
 import Collapsible from './components/Collapsible';
+import Filter from './components/Filter';
 
 function App() {
+  let data = [
+    { category: 'cars', title: 'BMW' },
+    { category: 'cars', title: 'vlkws' },
+    { category: 'cars', title: 'merc' },
+    { category: 'prog', title: 'c' },
+    { category: 'prog', title: 'c++' },
+    { category: 'prog', title: 'c#' },
+    { category: 'people', title: 'jack' },
+    { category: 'people', title: 'ross' },
+    { category: 'people', title: 'mark' },
+  ];
+
   const pVariants = {
     hidden: { x: -1000 },
     visible: { x: 0 },
@@ -72,6 +85,9 @@ function App() {
           Corrupti voluptates cumque vero quas sit. Praesentium sed illum
           consequatur unde dolores laboriosam?
         </Collapsible>
+      </section>
+      <section className='section'>
+        <Filter data={data} />
       </section>
     </div>
   );
