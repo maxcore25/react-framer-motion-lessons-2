@@ -6,6 +6,7 @@ export default function Button(props) {
 
   return (
     <motion.button
+      layout
       whileHover={{ backgroundColor: '#ddd' }}
       whileTap={{ backgroundColor: '#ccc' }}
       onClick={handleClick}>

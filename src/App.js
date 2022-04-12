@@ -9,12 +9,20 @@ function App() {
     { category: 'cars', title: 'BMW' },
     { category: 'cars', title: 'vlkws' },
     { category: 'cars', title: 'merc' },
+    { category: 'cars', title: 'ford' },
+    { category: 'cars', title: 'nissan' },
+    { category: 'cars', title: 'honda' },
+    { category: 'cars', title: 'toyota' },
+    { category: 'cars', title: 'ferrari' },
     { category: 'prog', title: 'c' },
     { category: 'prog', title: 'c++' },
     { category: 'prog', title: 'c#' },
     { category: 'people', title: 'jack' },
     { category: 'people', title: 'ross' },
     { category: 'people', title: 'mark' },
+    { category: 'people', title: 'max' },
+    { category: 'people', title: 'henry' },
+    { category: 'people', title: 'john' },
   ];
 
   const pVariants = {
